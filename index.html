@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juegos Educativos</title>
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#4F46E5",
+              secondary: "#10B981",
+              accent: "#F59E0B",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Modal de recordatorio postural -->
+    <div
+      id="postureModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"
+    >
+      <div
+        class="bg-white rounded-xl p-6 max-w-md mx-4 shadow-xl transform transition-all"
+      >
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8 text-yellow-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+              />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">
+            ¡Recuerda tu postura!
+          </h3>
+          <p class="text-gray-600 mb-6">
+            Por favor, mantén la espalda recta y la boca cerrada mientras
+            juegas. Una buena postura es importante para tu salud.
+          </p>
+          <button
+            id="closeModalBtn"
+            class="bg-primary hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition duration-200"
+          >
+            Entendido
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Encabezado -->
+    <header
+      class="bg-gradient-to-r from-primary to-indigo-700 text-white shadow-md"
+    >
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <h1 class="text-2xl font-bold flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path
+              d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+            />
+          </svg>
+          Juegos Educativos
+        </h1>
+        <button id="menuBtn" class="md:hidden focus:outline-none">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+        <nav id="mainNav" class="hidden md:block">
+          <ul class="flex space-x-6">
+            <li>
+              <button
+                id="homeBtn"
+                class="font-medium hover:text-indigo-200 transition"
+              >
+                Inicio
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="flex-grow container mx-auto px-4 py-8" id="mainContent">
+      <!-- Página de inicio (se muestra por defecto) -->
+      <section id="homePage">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            ¡Aprende Jugando!
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Selecciona uno de nuestros juegos educativos para mejorar tus
+            habilidades cognitivas mientras te diviertes. ¡Todos los juegos son
+            completamente gratuitos!
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <!-- Juego 1: Asociación imagen-palabra -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden transition transform hover:-translate-y-1 hover:shadow-lg"
+          >
+            <div
+              class="h-48 bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-20 w-20 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M3.5 13.5l9 5.5 9-5.5M12 3v10m0 0l-9-5.5m9 5.5l9-5.5"
+                />
+              </svg>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Asociación Imagen-Palabra
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Relaciona imágenes con las palabras correctas para mejorar tu
+                vocabulario y memoria visual.
+              </p>
+              <button
+                id="game1Btn"
+                class="w-full bg-primary hover:bg-indigo-700 text-white py-2 px-4 rounded-lg transition"
+              >
+                Jugar ahora
+              </button>
+            </div>
+          </div>
+
+          <!-- Juego 2: Clasificación por grupos -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden transition transform hover:-translate-y-1 hover:shadow-lg"
+          >
+            <div
+              class="h-48 bg-gradient-to-r from-green-400 to-emerald-500 flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-20 w-20 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Clasificación por Grupos
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Organiza elementos en categorías correctas para desarrollar tu
+                pensamiento lógico.
+              </p>
+              <button
+                id="game2Btn"
+                class="w-full bg-secondary hover:bg-emerald-600 text-white py-2 px-4 rounded-lg transition"
+              >
+                Jugar ahora
+              </button>
+            </div>
+          </div>
+
+          <!-- Juego 3: Ordenar frases -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden transition transform hover:-translate-y-1 hover:shadow-lg"
+          >
+            <div
+              class="h-48 bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-20 w-20 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M4 5h16M4 9h16m-7 4h7m-7 4h7M5 5l.5 7.5h7L13 5M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Ordenar Frases
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Reordena palabras para formar frases coherentes y mejorar tu
+                comprensión del lenguaje.
+              </p>
+              <button
+                id="game3Btn"
+                class="w-full bg-accent hover:bg-amber-600 text-white py-2 px-4 rounded-lg transition"
+              >
+                Jugar ahora
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 bg-indigo-50 rounded-xl p-6 max-w-4xl mx-auto">
+          <div class="flex items-start">
+            <div class="flex-shrink-0 bg-indigo-100 rounded-lg p-3 mr-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-indigo-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-indigo-800 mb-2">
+                Consejos para una mejor experiencia
+              </h3>
+              <ul class="text-gray-700 space-y-2">
+                <li class="flex items-start">
+                  <span class="text-indigo-500 mr-2">•</span>
+                  <span
+                    >Juega en un lugar tranquilo para mejorar tu
+                    concentración</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span class="text-indigo-500 mr-2">•</span>
+                  <span>Mantén una postura correcta mientras juegas</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-indigo-500 mr-2">•</span>
+                  <span>Intenta completar los juegos sin distracciones</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-indigo-500 mr-2">•</span>
+                  <span
+                    >Practica regularmente para mejorar tus habilidades</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Páginas de juegos (ocultas inicialmente) -->
+      <section id="gamePages" class="hidden">
+        <!-- Contenedor para resultados -->
+        <div id="resultsContainer" class="hidden"></div>
+
+        <!-- Juego 1: Asociación imagen-palabra -->
+        <div id="game1Container" class="hidden">
+          <!-- Contenido dinámico se insertará aquí -->
+        </div>
+
+        <!-- Juego 2: Clasificación por grupos -->
+        <div id="game2Container" class="hidden">
+          <!-- Contenido dinámico se insertará aquí -->
+        </div>
+
+        <!-- Juego 3: Ordenar frases -->
+        <div id="game3Container" class="hidden">
+          <!-- Contenido dinámico se insertará aquí -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-gray-800 text-white py-6">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <h2 class="text-xl font-bold flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                />
+              </svg>
+              Juegos Educativos
+            </h2>
+            <p class="text-gray-400 mt-2">
+              Aprendizaje divertido para todas las edades
+            </p>
+          </div>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div
+          class="mt-6 pt-6 border-t border-gray-700 text-center text-gray-400 text-sm"
+        >
+          <p>© 2023 Juegos Educativos. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts de la aplicación -->
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

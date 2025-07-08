@@ -1,0 +1,35 @@
+{
+  "imageWordAssociation": [
+    {
+      "id": 1,
+      "image": "manzana",
+      "correctWord": "Manzana",
+      "options": ["Pera", "Manzana", "Plátano"]
+    },
+    {
+      "id": 2,
+      "image": "perro",
+      "correctWord": "Perro",
+      "options": ["Gato", "Perro", "Conejo"]
+    }
+  ],
+  "classificationGroups": [
+    {
+      "id": 1,
+      "title": "Clasifica los animales",
+      "groups": ["Mamíferos", "Aves", "Reptiles"],
+      "items": [
+        { "id": 1, "name": "León", "group": "Mamíferos" },
+        { "id": 2, "name": "Águila", "group": "Aves" },
+        { "id": 3, "name": "Cocodrilo", "group": "Reptiles" }
+      ]
+    }
+  ],
+  "sentenceOrdering": [
+    {
+      "id": 1,
+      "sentence": "El gato duerme en el sofá",
+      "words": ["El", "gato", "duerme", "en", "el", "sofá"]
+    }
+  ]
+}
