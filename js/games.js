@@ -36,88 +36,125 @@ export const gameData = {
   imageWordAssociation: [
     {
       id: 1,
-      image: "manzana",
-      correctWord: "Manzana",
-      options: ["Pera", "Manzana", "Plátano"],
+      image: "🧤",
+      correctWord: "Frío",
+      options: ["Frío", "Zapato", "Metal"],
     },
     {
       id: 2,
-      image: "gato",
-      correctWord: "Gato",
-      options: ["Perro", "Gato", "Ratón"],
+      image: "🐶",
+      correctWord: "Mascota",
+      options: ["Mascota", "Caballo", "Oreja"],
     },
     {
       id: 3,
-      image: "casa",
-      correctWord: "Casa",
-      options: ["Edificio", "Casa", "Tienda"],
+      image: "🚿",
+      correctWord: "Baño",
+      options: ["Baño", "Lavadora", "Taza"],
     },
     {
       id: 4,
-      image: "sol",
-      correctWord: "Sol",
-      options: ["Luna", "Estrella", "Sol"],
+      image: "🧊",
+      correctWord: "Frío",
+      options: ["Frío", "Agua", "Nube"],
     },
     {
       id: 5,
-      image: "árbol",
-      correctWord: "Árbol",
-      options: ["Planta", "Árbol", "Flor"],
+      image: "🎒",
+      correctWord: "Escuela",
+      options: ["Escuela", "Dormitorio", "Televisor"],
     },
   ],
   classificationGroups: [
     {
       id: 1,
-      title: "Clasifica los animales",
-      groups: ["Mamíferos", "Aves", "Reptiles"],
+      title: "Clasificación por tipos de comida",
+      groups: ["Frutas", "Verduras", "Proteínas"],
       items: [
-        { id: 1, name: "León", group: "Mamíferos", image: "🦁" },
-        { id: 2, name: "Águila", group: "Aves", image: "🦅" },
-        { id: 3, name: "Serpiente", group: "Reptiles", image: "🐍" },
-        { id: 4, name: "Elefante", group: "Mamíferos", image: "🐘" },
-        { id: 5, name: "Cocodrilo", group: "Reptiles", image: "🐊" },
-        { id: 6, name: "Colibrí", group: "Aves", image: "🐦" },
+        { id: 1, name: "Manzana", group: "Frutas", image: "🍎" },
+        { id: 2, name: "Pollo", group: "Proteínas", image: "🍗" },
+        { id: 3, name: "Brócoli", group: "Verduras", image: "🥦" },
+        { id: 4, name: "Carne", group: "Proteínas", image: "🥩" },
+        { id: 5, name: "Queso", group: "Proteínas", image: "🧀" },
+        { id: 6, name: "Plátano", group: "Frutas", image: "🍌" },
       ],
     },
     {
       id: 2,
-      title: "Clasifica las frutas",
-      groups: ["Cítricos", "Tropicales", "Bayas"],
+      title: "Clasificación por lugares de uso",
+      groups: ["Baño", "Cocina", "Escuela"],
       items: [
-        { id: 1, name: "Naranja", group: "Cítricos", image: "🍊" },
-        { id: 2, name: "Mango", group: "Tropicales", image: "🥭" },
-        { id: 3, name: "Fresa", group: "Bayas", image: "🍓" },
-        { id: 4, name: "Limón", group: "Cítricos", image: "🍋" },
-        { id: 5, name: "Piña", group: "Tropicales", image: "🍍" },
-        { id: 6, name: "Arándano", group: "Bayas", image: "🫐" },
+        { id: 1, name: "Cepillo de dientes", group: "Baño", image: "🪥" },
+        { id: 2, name: "Plato", group: "Cocina", image: "🍽️" },
+        { id: 3, name: "Libro", group: "Escuela", image: "📚" },
+        { id: 4, name: "Ducha", group: "Baño", image: "🚿" }, // ← emoji de ducha
+        { id: 5, name: "Jabón", group: "Baño", image: "🧼" },
+        { id: 6, name: "Lápiz", group: "Escuela", image: "✏️" },
+      ],
+    },
+    {
+      id: 3,
+      title: "Clasificación por tipo de ropa según uso o clima",
+      groups: [
+        "Ropa para clima frío",
+        "Ropa para clima cálido",
+        "Ropa para hacer deporte",
+      ],
+      items: [
+        { id: 1, name: "Abrigo", group: "Ropa para clima frío", image: "🧥" },
+        {
+          id: 2,
+          name: "Sombrero",
+          group: "Ropa para clima cálido",
+          image: "👒",
+        },
+        {
+          id: 3,
+          name: "Pantaloneta",
+          group: "Ropa para clima cálido",
+          image: "🩳",
+        },
+        { id: 4, name: "Guantes", group: "Ropa para clima frío", image: "🧤" },
+        {
+          id: 5,
+          name: "Camiseta",
+          group: "Ropa para clima cálido",
+          image: "👕",
+        },
+        {
+          id: 6,
+          name: "Ropa deportiva",
+          group: "Ropa para hacer deporte",
+          image: "🎽",
+        },
       ],
     },
   ],
   sentenceOrdering: [
     {
       id: 1,
-      sentence: "El gato duerme en el sofá",
-      words: ["El", "gato", "duerme", "en", "el", "sofá"],
+      sentence: "El niño jugó en el parque grande",
+      words: ["El", "niño", "jugó", "en", "el", "parque", "grande"],
     },
     {
       id: 2,
-      sentence: "Los niños juegan en el parque",
-      words: ["Los", "niños", "juegan", "en", "el", "parque"],
+      sentence: "Ella lloró porque perdió su muñeca",
+      words: ["Ella", "lloró", "porque", "perdió", "su", "muñeca"],
     },
     {
       id: 3,
-      sentence: "El sol brilla en el cielo",
-      words: ["El", "sol", "brilla", "en", "el", "cielo"],
+      sentence: "Después de comer hizo su tarea",
+      words: ["Después", "de", "comer", "hizo", "su", "tarea"],
     },
     {
       id: 4,
-      sentence: "La abuela cocina galletas deliciosas",
-      words: ["La", "abuela", "cocina", "galletas", "deliciosas"],
+      sentence: "El perro juega con su pelota roja",
+      words: ["El", "perro", "juega", "con", "su", "pelota", "roja"],
     },
     {
       id: 5,
-      sentence: "Estudiamos matemáticas en la escuela",
-      words: ["Estudiamos", "matemáticas", "en", "la", "escuela"],
+      sentence: "Su hermano montó muy rápido en bicicleta",
+      words: ["Su", "hermano", "montó", "muy", "rápido", "en", "bicicleta"],
     },
   ],
 };
@@ -252,7 +289,7 @@ export function showHomePage() {
 export function startPostureReminder() {
   setInterval(() => {
     postureModal.classList.remove("hidden");
-  }, 20 * 60 * 1000); // 20 minutos
+  }, 2 * 60 * 1000); // 2 minutos
 }
 
 // Cerrar modal de postura

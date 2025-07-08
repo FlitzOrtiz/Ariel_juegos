@@ -62,7 +62,7 @@ export function loadImageWordLevel() {
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <!-- Imagen -->
                     <div class="flex justify-center">
-                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64 flex items-center justify-center text-gray-500">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64 flex items-center justify-center text-gray-500 text-[7rem]">
                             ${level.image}
                         </div>
                     </div>

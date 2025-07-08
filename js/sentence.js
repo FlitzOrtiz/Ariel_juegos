@@ -106,6 +106,9 @@ export function loadSentenceLevel() {
     newCheckBtn.addEventListener("click", checkSentenceOrder);
   }
 
+  // Llama a la función para habilitar drag and drop
+  setupSentenceDragAndDrop();
+
   // Iniciar temporizador
   startGameTimer();
 }
